@@ -12,17 +12,10 @@ import {
   RightSideSubSecDesc,
   RightSideSubSecTitle,
   RightSideTitle,
-  SecLeftSideTitle,
-  SecondSection,
-  SecSecLeftSide,
-  SecSecLeftSideDesc,
-  SecSecLeftSideTitle2,
-  SecSecRightSide,
   ThirdSection,
 } from '../../styled/home.styled';
 import { useIntl } from 'react-intl';
 import Logo from '../../assets/AlmanshaLogo.png';
-import sanadLogo from '../../assets/sanadlogo.jpeg';
 import Image from 'next/image';
 import { MediaCard } from '../../components/Card/Card';
 import { MediaCardThirdSection } from '../../components/Card/MediaCard';
@@ -41,10 +34,10 @@ const HomePage = () => {
     'homepage.wwh'
   ] as unknown as Array<{
     title: string;
-    descreprion: string;
+    description: string;
     subTitle: string;
-    descreptions: Array<{
-      descreption: string;
+    descriptions: Array<{
+      description: string;
       icon: string;
     }>;
   }>;
@@ -93,32 +86,16 @@ const HomePage = () => {
           <Image src={Logo} alt="" />
         </FirstSectionLeftSide>
       </FirstSection>
-      <SecondSection>
-        <SecSecLeftSide>
-          <SecLeftSideTitle>
-            {intl.formatMessage({ id: 'homepage.ourVision.title' })}
-          </SecLeftSideTitle>
-          <SecSecLeftSideTitle2>
-            {intl.formatMessage({ id: 'homepage.ourVision.title2' })}
-          </SecSecLeftSideTitle2>
-          <SecSecLeftSideDesc>
-            {intl.formatMessage({ id: 'homepage.ourVision.description' })}
-          </SecSecLeftSideDesc>
-        </SecSecLeftSide>
-        <SecSecRightSide>
-          <Image src={sanadLogo} width={500} height={500} alt="" />
-        </SecSecRightSide>
-      </SecondSection>
       <ThirdSection>
         {Object.keys(cardsInformationThirdSection).map(
           (key: string, index: number) => {
             return (
               <MediaCardThirdSection
                 key={index}
-                description={cardsInformationThirdSection[key].descreption}
+                description={cardsInformationThirdSection[key].description}
                 title={cardsInformationThirdSection[key].title}
                 descriptions={
-                  cardsInformationThirdSection[key].sub_descreptions
+                  cardsInformationThirdSection[key].sub_descriptions
                 }
                 subTitle={cardsInformationThirdSection[key].sub_title}
               />
